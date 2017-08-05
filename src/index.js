@@ -11,7 +11,8 @@ class App extends React.Component{
   }
   render(){
     return(
-      <div className="">
+      <div className="wrapper">
+        <h1>React Image Slider</h1>
         <Slider />
       </div>
     )

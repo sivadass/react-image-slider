@@ -1,9 +1,11 @@
 .slider{
-  width: 100%;
-  max-width: 750px;
   margin: 0 auto;
-  height: 250px;
   position: relative;
+  .slide{
+    img{
+      width: 100%;
+    }
+  }
 }
 .slider-controls{
   position: absolute;
