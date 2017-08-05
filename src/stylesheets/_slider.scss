@@ -1,0 +1,46 @@
+.slider{
+  width: 100%;
+  max-width: 750px;
+  margin: 0 auto;
+  height: 250px;
+  position: relative;
+}
+.slider-controls{
+  position: absolute;
+  width: 100%;
+  top: calc(50% - 24px);
+  display: flex;
+  display: -webkit-flex;
+  justify-content: space-between;
+  -webkit-justify-content: space-between;
+  .next-button,
+  .prev-button{
+    color: #999;
+    text-align: center;
+    display: block;
+    background: #fff;
+    height: 32px;
+    width: 32px;
+    border: 1px solid #ccc;
+    border-radius: 24px;
+    line-height: 30px;
+    box-sizing: content-box;
+    margin: 0 16px;
+    &:before{
+      font-family: Arial, Helvetica, sans-serif;
+      display: block;
+      font-size: 24px;
+    }
+  }
+  .prev-button{
+    &:before{
+      content: "\2039";
+    }
+  }
+  .next-button{
+    &:before{
+      content: "\203A";
+    }
+  }
+}
+
