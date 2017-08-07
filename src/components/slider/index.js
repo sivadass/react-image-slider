@@ -38,6 +38,7 @@ class Slider extends React.Component{
     }
   }
   render(){
+    console.log(this.props.children);
     return(
       <div className="slider">
         <div className="slider-viewport">
