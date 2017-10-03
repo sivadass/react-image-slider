@@ -1,23 +1,30 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Slider from './components/slider';
+import './styles/slider.scss';
 
-const css = require('./stylesheets/style.scss');
+import Slider from './slider';
 
 class App extends React.Component{
   constructor(props){
     super(props);
-    this.state = {};
+    this.state = {
+      currentSlide : 0
+    }
   }
+
   render(){
     return(
-      <div className="wrapper">
-        <header>
-          <h1>React Image Slider</h1>
-          <p>A minimal react image carousel component.</p>
-        </header>
-        <Slider />
-      </div>
+      <Slider>
+        <li className="slider-item">
+					<img src="dist/img/slider1.jpg" />
+				</li>
+				<li className="slider-item">
+					<img src="dist/img/slider2.jpg" />
+				</li>
+				<li className="slider-item">
+					<img src="dist/img/slider3.jpg" />
+				</li>
+      </Slider>
     )
   }
 }
