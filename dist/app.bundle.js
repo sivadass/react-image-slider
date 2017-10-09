@@ -10298,7 +10298,7 @@ var Slider = function (_React$Component) {
 
 		_this.state = {
 			slides: _this.props.children,
-			currentSlide: 2
+			currentSlide: 0
 		};
 		_this.slideInterval = _this.slideInterval.bind(_this);
 		_this.nextSlide = _this.nextSlide.bind(_this);
@@ -10314,7 +10314,7 @@ var Slider = function (_React$Component) {
 	}, {
 		key: 'slideInterval',
 		value: function slideInterval() {
-			setInterval(this.nextSlide, 5000);
+			setInterval(this.nextSlide, 1500);
 		}
 	}, {
 		key: 'nextSlide',
@@ -10322,8 +10322,6 @@ var Slider = function (_React$Component) {
 			var nextSlideItem = (this.state.currentSlide + 1) % this.state.slides.length;
 			this.setState({
 				currentSlide: nextSlideItem
-			}, function () {
-				console.log(this.state.currentSlide);
 			});
 		}
 	}, {
@@ -10334,9 +10332,11 @@ var Slider = function (_React$Component) {
 				{
 					transitionName: 'example',
 					transitionAppear: true,
-					transitionEnterTimeout: 500,
-					transitionLeaveTimeout: 300,
-					component: 'ul' },
+					transitionAppearTimeout: 500,
+					transitionEnterTimeout: 1000,
+					transitionLeaveTimeout: 1000,
+					component: 'ul',
+					key: this.state.currentSlide },
 				this.props.children[this.state.currentSlide]
 			);
 		}
@@ -10346,7 +10346,7 @@ var Slider = function (_React$Component) {
 			console.log();
 			return _react2.default.createElement(
 				'div',
-				{ className: 'one' },
+				null,
 				this.renderChild()
 			);
 		}
@@ -10403,7 +10403,7 @@ var App = function (_React$Component) {
     var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
 
     _this.state = {
-      currentSlide: 0
+      currentSlide: -3
     };
     return _this;
   }
@@ -10417,16 +10417,43 @@ var App = function (_React$Component) {
         _react2.default.createElement(
           'li',
           { className: 'slider-item' },
+          _react2.default.createElement(
+            'div',
+            null,
+            _react2.default.createElement(
+              'h1',
+              null,
+              '1'
+            )
+          ),
           _react2.default.createElement('img', { src: 'dist/img/slider1.jpg' })
         ),
         _react2.default.createElement(
           'li',
           { className: 'slider-item' },
+          _react2.default.createElement(
+            'div',
+            null,
+            _react2.default.createElement(
+              'h1',
+              null,
+              '2'
+            )
+          ),
           _react2.default.createElement('img', { src: 'dist/img/slider2.jpg' })
         ),
         _react2.default.createElement(
           'li',
           { className: 'slider-item' },
+          _react2.default.createElement(
+            'div',
+            null,
+            _react2.default.createElement(
+              'h1',
+              null,
+              '3'
+            )
+          ),
           _react2.default.createElement('img', { src: 'dist/img/slider3.jpg' })
         )
       );

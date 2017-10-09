@@ -6,7 +6,7 @@ class Slider extends React.Component{
 		super(props);
 		this.state = {
 			slides : this.props.children,
-			currentSlide: 2
+			currentSlide: 0
 		}
 		this.slideInterval = this.slideInterval.bind(this);
 		this.nextSlide = this.nextSlide.bind(this);
@@ -16,14 +16,12 @@ class Slider extends React.Component{
 		this.slideInterval();
 	}
 	slideInterval(){
-		setInterval(this.nextSlide, 5000);
+		setInterval(this.nextSlide, 1500);
 	}
 	nextSlide(){
 		let nextSlideItem = (this.state.currentSlide + 1) % this.state.slides.length;
 		this.setState({
 			currentSlide: nextSlideItem
-		}, function(){
-			console.log(this.state.currentSlide)
 		})
 	}
 	renderChild(){
@@ -31,9 +29,11 @@ class Slider extends React.Component{
 			<ReactCSSTransitionGroup
 				transitionName="example"
 				transitionAppear={true}
-				transitionEnterTimeout={500}
-				transitionLeaveTimeout={300}
-				component="ul">
+				transitionAppearTimeout={500}
+				transitionEnterTimeout={1000}
+				transitionLeaveTimeout={1000}
+				component="ul"
+				key={this.state.currentSlide}>
 					{this.props.children[this.state.currentSlide]}
 			</ReactCSSTransitionGroup>
     );
@@ -41,7 +41,7 @@ class Slider extends React.Component{
 	render(){
 		console.log();
 		return(
-			<div className="one">
+			<div>
 				{this.renderChild()}
 			</div>
 		)
